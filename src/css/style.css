@@ -1,0 +1,142 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  color: #2a2a2a;
+  background-color: aqua;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 20px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 20px 0;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 300px;
+  height: 30px;
+  border: 1px solid #2196f3;
+  border-radius: 4px;
+  padding-left: 10px;
+
+  font-weight: 400;
+  font-size: 15px;
+
+  background-color: transparent;
+}
+.search-input:focus {
+  border-color: #2196f3;
+}
+.search-inpu::placeholder {
+  color: #2196f3;
+}
+
+.button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+
+  height: 30px;
+  width: 130px;
+  font-weight: 400;
+  border: 1px solid #2196f3;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #2196f3;
+}
+.button.is-hidden {
+  display: none;
+}
+.button > .spinner.is-hidden {
+  display: none;
+}
+
+.gallery-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -20px;
+  margin-bottom: -20px;
+}
+.gallery-item {
+  display: flex;
+  width: 400px;
+  flex-basis: calc(100% / 3 - 20px);
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  border: 1px solid #eee;
+}
+
+.gallery-image-box {
+  overflow: hidden;
+}
+
+.gallery-image-preview {
+  background-size: cover;
+  overflow: hidden;
+  height: 250px;
+  width: 380px;
+}
+.gallery-image-preview:hover {
+  transform: scale(1.4);
+  border-radius: 4px;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats-item {
+  padding: 10px 5px 10px 5px;
+  font-size: 15px;
+}
+
+.material-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2196f3;
+}
