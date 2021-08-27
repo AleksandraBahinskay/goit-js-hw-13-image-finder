@@ -1,27 +1,27 @@
-import ImagesApiService from "./apiService";
-import LoadMoreBtn from "./load-more-btn";
+import ImagesApiService from './apiService';
+import LoadMoreBtn from './load-more-btn';
 
 // handlebars
-import imageCardTpl from "../templates/image-card.hbs";
+import imageCardTpl from '../templates/image-card.hbs';
 
 // pnotify
-import { defaultModules, error } from "@pnotify/core";
-import "@pnotify/core/dist/PNotify.css";
-import * as PNotifyMobile from "@pnotify/mobile";
-import "@pnotify/mobile/dist/PNotifyMobile.css";
+import { defaultModules, error } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import * as PNotifyMobile from '@pnotify/mobile';
+import '@pnotify/mobile/dist/PNotifyMobile.css';
 
-import "@pnotify/core/dist/BrightTheme.css"; //color theme for error
+import '@pnotify/core/dist/BrightTheme.css'; //color theme for error
 
 defaultModules.set(PNotifyMobile, {});
 
 // basicLightbox
-import "../../node_modules/basiclightbox/dist/basicLightbox.min.css";
-import * as basicLightbox from "basiclightbox";
+// import "../../node_modules/basiclightbox/dist/basicLightbox.min.css";
+// import * as basicLightbox from "basiclightbox";
 
 // refs
-const formInputRef = document.getElementById("search-form");
-const galleryListRef = document.getElementById("gallery-list");
-const loadMoreBtnRef = document.getElementById("my-element-selector");
+const formInputRef = document.getElementById('search-form');
+const galleryListRef = document.getElementById('gallery-list');
+const loadMoreBtnRef = document.getElementById('my-element-selector');
 
 // instances
 const imagesApiService = new ImagesApiService();
@@ -33,7 +33,7 @@ const loadMoreBtn = new LoadMoreBtn({
 // IntersectionObserver
 const options = {
   root: null,
-  rootMargin: "0px",
+  rootMargin: '0px',
   threshold: 0.5,
 };
 const observer = new IntersectionObserver(onLoadMoreClick, options);
@@ -53,7 +53,7 @@ async function onSearch(e) {
   clearImagesContainer();
 
   const value = e.target.elements.query.value.trim();
-  if (value === "") {
+  if (value === '') {
     return setError({
       title: `Please enter some value!`,
       delay: 500,
@@ -68,11 +68,11 @@ async function onSearch(e) {
   fetchImages();
   imagesApiService.resetPage();
 }
-formInputRef.addEventListener("submit", onSearch);
+formInputRef.addEventListener('submit', onSearch);
 
 function fetchImages() {
   loadMoreBtn.disable();
-  imagesApiService.fetchPictures().then((hits) => {
+  imagesApiService.fetchPictures().then(hits => {
     // renderImagesMarkup(hits);
     loadMoreBtn.enable();
     formInputRef.reset();
@@ -80,11 +80,11 @@ function fetchImages() {
 }
 
 function renderImagesMarkup(hits) {
-  galleryListRef.insertAdjacentHTML("beforeend", imageCardTpl(hits));
+  galleryListRef.insertAdjacentHTML('beforeend', imageCardTpl(hits));
 }
 
 function clearImagesContainer() {
-  galleryListRef.innerHTML = "";
+  galleryListRef.innerHTML = '';
 }
 
 async function onLoadMoreClick(e) {
@@ -95,15 +95,15 @@ async function onLoadMoreClick(e) {
   renderImagesMarkup(data);
 
   galleryListRef.scrollIntoView({
-    behavior: "smooth",
-    block: "end",
+    behavior: 'smooth',
+    block: 'end',
   });
 }
 // loadMoreBtn.refs.button.addEventListener('click', onLoadMoreClick);
-loadMoreBtnRef.addEventListener("click", onLoadMoreClick);
+loadMoreBtnRef.addEventListener('click', onLoadMoreClick);
 
 function showModal(e) {
-  if (e.target.nodeName !== "IMG") {
+  if (e.target.nodeName !== 'IMG') {
     return;
   }
 
@@ -112,4 +112,4 @@ function showModal(e) {
     `);
   instance.show();
 }
-galleryListRef.addEventListener("click", showModal);
+galleryListRef.addEventListener('click', showModal);
