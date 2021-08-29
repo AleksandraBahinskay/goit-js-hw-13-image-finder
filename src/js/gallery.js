@@ -31,12 +31,12 @@ const loadMoreBtn = new LoadMoreBtn({
 });
 
 // IntersectionObserver
-const options = {
-  root: null,
-  rootMargin: '0px',
-  threshold: 0.5,
-};
-const observer = new IntersectionObserver(onLoadMoreClick, options);
+// const options = {
+//   root: null,
+//   rootMargin: '0px',
+//   threshold: 0.5,
+// };
+// const observer = new IntersectionObserver(onLoadMoreClick, options);
 
 function setError(data) {
   const now = new Date().valueOf();
